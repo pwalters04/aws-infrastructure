@@ -22,3 +22,21 @@ variable "ami_server" {
 variable "instance_type" {
   default = "t2.micro"
 }
+
+variable "rds_instance_class" {
+  default = "db.t2.micro"
+}
+
+variable "database_name" {
+  default = "sandboxSQLDB"
+}
+
+variable "database_user" {
+  default = "admin"
+}
+
+variable "database_temp_password" {
+  default = "Random2019"
+}
+
+
