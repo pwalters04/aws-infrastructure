@@ -25,14 +25,6 @@ resource "aws_subnet" "public-subnet-sandbox" {
   }
 }
 
-# resource "aws_subnet" "private-subnet-sandox" {
-#   vpc_id     = "${aws_vpc.vpc-sandbox.id}"
-#   cidr_block = "10.0.1.0/24"
-#   tags = {
-#     Name = "sandbox"
-#   }
-# }
-
 resource "aws_route_table" "public-rt-sandbox" {
     vpc_id="${aws_vpc.vpc-sandbox.id}"
     route {
@@ -74,7 +66,7 @@ resource "aws_instance" "ec2-box" {
     instance_type = "${var.instance_type}"
     security_groups = ["${aws_security_group.aws-sg-sandox.id}"]
 	subnet_id = "${element(aws_subnet.public-subnet-sandbox.*.id,count.index)}"
-    user_data = "${file("mysql-install.sh")}"
+    user_data = "${file("install-httpd-mysql.sh")}"
     tags = {
         name = "ec2-box-${count.index+1}"
     }
