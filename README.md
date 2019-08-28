@@ -1,6 +1,6 @@
 # Amazon Web Service - IaaC(Terraform Deployment)
 
-## Simple Architecure of the following:
+### Simple Architecure of the following:
 - EC2
 - Classic Load Balancer
 - Virtual Private Cloud (VPC)
