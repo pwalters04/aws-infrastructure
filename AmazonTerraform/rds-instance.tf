@@ -3,11 +3,17 @@
 resource "aws_db_subnet_group" "rds-subnet"{
     name = "rds-subnet-group"
     subnet_ids = "${aws_subnet.public-subnet-sandbox.*.id}"
+    tags = {
+      name = "rds-subnet"
+  }
 }
 
 resource "aws_security_group" "rds-security-group" {
     name = "rds-sg"
     vpc_id ="${aws_vpc.vpc-sandbox.id}"
+    tags = {
+      name = "rds-sg"
+  }
 }
 
 resource "aws_security_group_rule" "mysql_inbound_access" {
